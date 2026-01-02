@@ -16,52 +16,24 @@ This project transforms a messy, real-world retail dataset into a structured ana
 
 Initial upload attempt using "Auto-detect schema" failed due to inconsistencies in the raw CSV (eg, non-numeric characters in numeric fields).
 
-**Solution:** I implemented a *Manual Schema Definition*, importing all fields as `STRING` types. This provided a "safe" landing zone for the data, allowing for controlled transformation using SQL rather than letting the database reject the file.
+**Solution:** I implemented a *Manual Schema Definition*, using the following `json` definition:
+
+[`create_manual_schema.json`](json)
+
+Importing all fields as `STRING` types provided a "safe" landing zone for the data, allowing for controlled transformation using SQL rather than letting the database reject the file.
 
 ### The Cleaning Pipeline
 
-I developed a SQL view to modularize the cleaning process. Key transformations included:
+I developed a SQL view to modularize the cleaning process:
+
+[`01_create_view.sql`](sql)
+
+Key transformations included:
 
 - **Data Type Casting:** Used `SAFE_CAST` to convert strings to `INT64` and `FLOAT64`, ensuring the query wouldn't fail on "dirty" entries.
 - **Timestamp Parsing:** Converted string dates into proper `TIMESTAMP` objects to enable time-series analysis.
 - **Business Logic Filtering:** Excluded records with missing `CustomerID` and non-positive `Quantity` or `UnitPrice` to focus the analysis on successful gross sales.
 
-```sql
-/* THE ETL PROCESS
-Refining raw strings into high-quality business data.
-*/
-
-CREATE OR REPLACE VIEW `portfolio_project.v_cleaned_retail_data` AS
-WITH base_transformation AS (
-  SELECT
-    InvoiceNo,
-    StockCode,
-    Description,
-    -- Using SAFE_CAST to prevent errors if non-numeric characters exist
-    SAFE_CAST(Quantity AS INT64) AS Quantity,
-    -- Converting the string date to a real Timestamp
-    PARSE_TIMESTAMP('%m/%d/%Y %H:%M', InvoiceDate) AS invoice_timestamp,
-    SAFE_CAST(UnitPrice AS FLOAT64) AS UnitPrice,
-    CustomerID,
-    Country
-  FROM 
-    `portfolio_project.raw_retail_data`
-)
-
-SELECT 
-    *,
-    -- Adding Business Logic: Total Revenue per line item
-    ROUND(Quantity * UnitPrice, 2) AS line_item_revenue,
-    -- Extracting date parts for easier analysis later
-    EXTRACT(DATE FROM invoice_timestamp) AS invoice_date,
-    EXTRACT(MONTH FROM invoice_timestamp) AS invoice_month
-FROM 
-    base_transformation
-WHERE 
-    CustomerID IS NOT NULL 
-    AND Quantity > 0 
-    AND UnitPrice > 0;
-```
 ### Data Audit Results
 
 By filtering out "clutter" (canceled orders and anonymous transactions), I ensured the integrity of the downstream analysis.
