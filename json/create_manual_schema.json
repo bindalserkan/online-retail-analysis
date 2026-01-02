@@ -1,0 +1,12 @@
+-- Create schema for the table manually
+
+[
+  {"name": "invoice_no", "type": "STRING"},
+  {"name": "stock_code", "type": "STRING"},
+  {"name": "description", "type": "STRING"},
+  {"name": "quantity", "type": "STRING"},
+  {"name": "invoice_date", "type": "STRING"},
+  {"name": "unit_price", "type": "STRING"},
+  {"name": "customer_id", "type": "STRING"},
+  {"name": "country", "type": "STRING"}
+]
