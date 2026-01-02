@@ -11,7 +11,7 @@ WITH base_transformation AS (
     -- Using SAFE_CAST to prevent errors if non-numeric characters exist
     SAFE_CAST(quantity AS INT64) AS quantity,
     -- Converting the string date to a real Timestamp
-    PARSE_TIMESTAMP('%m/%d/%Y %H:%M', invoice_date) AS invoice_timestamp,
+    PARSE_TIMESTAMP('%m/%d/%y %H:%M', invoice_date) AS invoice_timestamp,
     SAFE_CAST(unit_price AS FLOAT64) AS unit_price,
     customer_id,
     country
