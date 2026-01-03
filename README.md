@@ -56,8 +56,7 @@ I created a new SQL table to find answers to the following questions:
 
 By calculating these three numbers, I made an "**RFM Summary**" so that we can tell "*These are our champions who bought often and recently*" or "*We are losing those who haven't bought for a while*"
 
-[`02_rfm_summary.sql`](sql)
-
+[`RFM Summary`](sql/02_rfm_summary.sql)
 
 
 
