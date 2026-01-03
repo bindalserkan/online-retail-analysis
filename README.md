@@ -26,7 +26,7 @@ Importing all fields as `STRING` types provided a "safe" landing zone for the da
 
 I developed a SQL view to modularize the cleaning process:
 
-[`01_create_view.sql`](sql)
+[`Data Cleaning`](sql/01_create_view.sql)
 
 Key transformations included:
 
