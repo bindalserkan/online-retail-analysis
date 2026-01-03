@@ -28,7 +28,7 @@ Key transformations included:
 
 - **Data Type Casting:** Leveraged `SAFE_CAST` to handle non-numeric noise.
 - **Timestamp Parsing:** Converted string dates into proper `TIMESTAMP` objects to enable time-series analysis.
-- **Business Logic Filtering:** Excluded records with missing `CustomerID` and non-positive `Quantity` or `UnitPrice` to focus the analysis on successful gross sales.
+- **Business Logic Filtering:** Excluded records with missing `customer_id` and non-positive `quantity` or `unit_price` to focus the analysis on successful gross sales.
 
 🔗[`View Transformation Query`](sql/01_create_view.sql)
 
@@ -62,7 +62,7 @@ We have the raw numbers (Recency, Frequency, Monetary), but from a business pers
 
 Using the SQL `NTILE` window function, I assigned a score of 1–5 for each metric.
 
-🔗[`View RFM Scoring Query`](sql/02_rfm_scoring.sql) 
+🔗[`View RFM Scoring Query`](sql/03_rfm_scoring.sql) 
 
 ### Customer Segmentation
 
