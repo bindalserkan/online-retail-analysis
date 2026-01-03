@@ -32,7 +32,7 @@ Key transformations included:
 - **Timestamp Parsing:** Converted string dates into proper `TIMESTAMP` objects to enable time-series analysis.
 - **Business Logic Filtering:** Excluded records with missing `CustomerID` and non-positive `Quantity` or `UnitPrice` to focus the analysis on successful gross sales.
 
-🔗[`View Transformation Process`](sql/01_create_view.sql)
+🔗[`View Transformation Query`](sql/01_create_view.sql)
 
 ### Data Audit Results
 
@@ -44,40 +44,38 @@ By filtering out "clutter" (canceled orders and anonymous transactions), I ensur
 | **Cleaned Records** | 397.884 |
 | **Data Noise Removed** | ~26% |
 
-## 🏗 Phase 2: Customer Intelligence (RFM Analysis)
+## 📊 Phase 2: Customer Intelligence (RFM Analysis)
 
 ### Summarizing Customer Behaviour
 
-Creating a SQL table, I found answers to the following questions:
+To move beyond basic reporting, I implemented an RFM Model to categorize customers based on their behavior. Creating a SQL table, I found answers to the following questions that build our RFM summary:
 
 - **Recency(R):** How many days ago was a customer's last purchase?
 - **Frequency(F):** How many unique orders did a customer place?
 - **Monetary(M):** What is the total revenue a customer generated?
   
-🔗[`View RFM Summary`](sql/02_rfm_summary.sql)
+🔗[`View RFM Summarization Query`](sql/02_rfm_summary.sql)
 
 ### The RFM Scoring
 
 We have the raw numbers (Recency, Frequency, Monetary), but from a business perspective, it is better to see where the "Risk" is. 
 
-Using a window function `NTILE`, customers are splitted into 5 equal groups.
+<img src="predictive_segments.png" alt="Predictive Segments" width="500" height="400">
 
-🔗[`View RFM Scoring`](sql/02_rfm_scoring.sql) 
+Using the SQL `NTILE` window function, I assigned a score of 1–5 for each metric.
 
-### Final Customer Segmentation
+🔗[`View RFM Scoring Query`](sql/02_rfm_scoring.sql) 
 
-Since we graded customers according to their behaviours, it is time to give them "Human" labels. 
-Here I created another SQL table to segment the customers:
+### Customer Segmentation
 
-[`Customer Segments`](sql/04_final_segment.sql)
+I then applied a `CASE` statement to categorize customers into strategic segments.
 
-### Analysis Results
-
-| Customer Segment | Number |
-| :--- | :--- |
-| **Big Spenders at Risk** | 341 |
-| **Champions** | 973 |
-| **Loyal Customers** | 983 |
-| **Lost/Hibernating** | 1015 |
-| **Regular Customers** | 1034 |
+| Customer Segment | Count | Strategic Action |
+| :--- | :---: | :--- |
+| **Champions** |973| Reward and use for referral programs |
+| **Loyal Customers** |983| Upsell premium products |
+| **Regular Customers** |1034| Marketing engagement standard |
+| **Big Spenders at Risk** |341| Immediate re-engagement discount needed |
+| **Lost/Hibernating** |1015| Low-cost automated win-back campaign |
  
+🔗[`View Customer Segmentation Query`](sql/04_final_segment.sql)
