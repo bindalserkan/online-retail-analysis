@@ -62,5 +62,12 @@ By calculating these three numbers, I made an "**RFM Summary**" so that we can t
 
 We have the raw numbers (Recency, Frequency, Monetary), but from a business perspective, it is better to see where the "Risk" is. 
 
+I used a window function, `NTILE` which splits the customers into 5 equal groups.
+
+- A recency score of 5 is "Very Recent"
+- A frequency score of 5 is "Very Loyal"
+- A monetary score of 5 is "Big Spender"
+
+[`RFM Scoring`]() 
 
  
