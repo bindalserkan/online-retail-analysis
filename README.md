@@ -16,9 +16,9 @@ This project transforms a messy, real-world retail dataset into a structured ana
 
 Initial upload attempt using "Auto-detect schema" failed due to inconsistencies in the raw CSV (eg, non-numeric characters in numeric fields).
 
-**Solution:** I implemented a *Manual Schema Definition*, using the following `json` definition:
+**Solution:** I implemented a *Manual Schema Definition*, using the following `json`:
 
-[`create_manual_schema.json`](json)
+[`Create Manual Schema`](json/create_manual_schema.json)
 
 Importing all fields as `STRING` types provided a "safe" landing zone for the data, allowing for controlled transformation using SQL rather than letting the database reject the file.
 
