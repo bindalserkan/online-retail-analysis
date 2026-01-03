@@ -77,4 +77,13 @@ Here I created another SQL table to segment the customers:
 
 [`Customer Segments`](sql/04_final_segment.sql)
 
+### Analysis Results
+
+| Customer Segment | Number |
+| :--- | :--- |
+| **Big Spenders at Risk** | 341 |
+| **Champions** | 973 |
+| **Loyal Customers** | 983 |
+| **Lost/Hibernating** | 1015 |
+| **Regular Customers** | 1034 |
  
