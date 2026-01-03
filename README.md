@@ -44,7 +44,17 @@ By filtering out "clutter" (canceled orders and anonymous transactions), I ensur
 | **Cleaned Records** | 397.884 |
 | **Data Noise Removed** | ~26% |
 
+## 🏗 Phase 2: The Analytical Deep Dive
 
+### Summarizing Customer Behaviour
+
+I created a new SQL table to do **RFM** analysis and to find answers to the following questions:
+
+- **Recency(R):** How many days ago was a customer's last purchase?
+- **Frequency(F):** How many unique orders did a customer place?
+- **Monetary(M):** What is the total revenue a customer generated?
+
+By calculating these three numbers, we can tell "*These are our champions who bought often and recently*" or "*We are losing those who haven't bought for a while*"
 
 
 
