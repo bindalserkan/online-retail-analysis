@@ -75,6 +75,6 @@ I used a window function, `NTILE` which splits the customers into 5 equal groups
 Since we graded customers according to their behaviours, it is time to give them "Human" labels. 
 Here I created another SQL table to segment the customers:
 
-
+[`Customer Segments`](sql/04_final_segment.sql)
 
  
