@@ -2,37 +2,37 @@
 
 ## 📌 Project Overview 
 
-This project transforms a messy, real-world retail dataset into a structured analytical environment. Leveraging *SQL* and *BigQuery*, I performed a full *ETL (Extract, Transform, Load)* process to clean over 500k rows of transactional data, preparing it for high-level business intelligence and customer segmentation.
+This project transforms a messy, real-world retail dataset into a structured analytical environment. Leveraging *SQL* and *BigQuery*, I performed a full **ETL (Extract, Transform, Load)** process to clean over 500k rows of transactional data, followed by an **RFM (Recency, Frequency, Monetary)** analysis to segment customers and drive strategic business value.
 
 ## 🛠 Tech Stack
 
 - **Database:** Google BigQuery (SQL)
-- **Data Source:** UCI Machine Learning Repository (Online Retail II) - Sourced via Kaggle
-- **Concepts:** Data Cleaning, Schema Mapping, CTEs (Common Table Expressions), Data Validation.
+- **Data Source:** Online Retail II (via Kaggle)
+- **Concepts:** Schema Mapping, ETL, Data Cleaning, CTEs (Common Table Expressions), Data Validation, Window Functions, Customer Segmentation
 
 ## 🏗 Phase 1: ETL & Data Integrity
 
 ### Data Ingestion Challenge
 
-Initial upload attempt using "Auto-detect schema" failed due to inconsistencies in the raw CSV (eg, non-numeric characters in numeric fields).
+Initial upload attempt using "Auto-detect schema" failed due to inconsistencies in the raw CSV.
 
-**Solution:** I implemented a *Manual Schema Definition*, using the following `json`:
+- **Solution:** I implemented a **Manual Schema Definition** (loading all fields as `STRING`). This provided a stable "landing zone," allowing for programmatic cleaning via SQL.
 
-[`Create Manual Schema`](json/create_manual_schema.json)
+🔗[`View Schema Definition`](json/create_manual_schema.json)
 
 Importing all fields as `STRING` types provided a "safe" landing zone for the data, allowing for controlled transformation using SQL rather than letting the database reject the file.
 
 ### The Cleaning Pipeline
 
-I developed a SQL view to modularize the cleaning process:
-
-[`Data Cleaning`](sql/01_create_view.sql)
+I developed a modular SQL view to standardize the data.
 
 Key transformations included:
 
-- **Data Type Casting:** Used `SAFE_CAST` to convert strings to `INT64` and `FLOAT64`, ensuring the query wouldn't fail on "dirty" entries.
+- **Data Type Casting:** Leveraged `SAFE_CAST` to handle non-numeric noise.
 - **Timestamp Parsing:** Converted string dates into proper `TIMESTAMP` objects to enable time-series analysis.
 - **Business Logic Filtering:** Excluded records with missing `CustomerID` and non-positive `Quantity` or `UnitPrice` to focus the analysis on successful gross sales.
+
+🔗[`View Transformation Process`](sql/01_create_view.sql)
 
 ### Data Audit Results
 
@@ -44,31 +44,25 @@ By filtering out "clutter" (canceled orders and anonymous transactions), I ensur
 | **Cleaned Records** | 397.884 |
 | **Data Noise Removed** | ~26% |
 
-## 🏗 Phase 2: The Analytical Deep Dive
+## 🏗 Phase 2: Customer Intelligence (RFM Analysis)
 
 ### Summarizing Customer Behaviour
 
-I created a new SQL table to find answers to the following questions:
+Creating a SQL table, I found answers to the following questions:
 
 - **Recency(R):** How many days ago was a customer's last purchase?
 - **Frequency(F):** How many unique orders did a customer place?
 - **Monetary(M):** What is the total revenue a customer generated?
-
-By calculating these three numbers, I made an "**RFM Summary**" so that we can tell "*These are our champions who bought often and recently*" or "*We are losing those who haven't bought for a while*"
-
-[`RFM Summary`](sql/02_rfm_summary.sql)
+  
+🔗[`View RFM Summary`](sql/02_rfm_summary.sql)
 
 ### The RFM Scoring
 
 We have the raw numbers (Recency, Frequency, Monetary), but from a business perspective, it is better to see where the "Risk" is. 
 
-I used a window function, `NTILE` which splits the customers into 5 equal groups.
+Using a window function `NTILE`, customers are splitted into 5 equal groups.
 
-- A recency score of 5 is "Very Recent"
-- A frequency score of 5 is "Very Loyal"
-- A monetary score of 5 is "Big Spender"
-
-[`RFM Scoring`](sql/02_rfm_scoring.sql) 
+🔗[`View RFM Scoring`](sql/02_rfm_scoring.sql) 
 
 ### Final Customer Segmentation
 
