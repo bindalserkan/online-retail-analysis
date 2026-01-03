@@ -58,6 +58,9 @@ By calculating these three numbers, I made an "**RFM Summary**" so that we can t
 
 [`RFM Summary`](sql/02_rfm_summary.sql)
 
+### The RFM Scoring
+
+We have the raw numbers (Recency, Frequency, Monetary), but from a business perspective, it is better to see where the "Risk" is. 
 
 
  
