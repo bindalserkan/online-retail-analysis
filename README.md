@@ -20,8 +20,6 @@ Initial upload attempt using "Auto-detect schema" failed due to inconsistencies 
 
 🔗[`View Schema Definition`](json/create_manual_schema.json)
 
-Importing all fields as `STRING` types provided a "safe" landing zone for the data, allowing for controlled transformation using SQL rather than letting the database reject the file.
-
 ### The Cleaning Pipeline
 
 I developed a modular SQL view to standardize the data.
