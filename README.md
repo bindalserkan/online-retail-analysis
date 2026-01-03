@@ -68,6 +68,6 @@ I used a window function, `NTILE` which splits the customers into 5 equal groups
 - A frequency score of 5 is "Very Loyal"
 - A monetary score of 5 is "Big Spender"
 
-[`RFM Scoring`]() 
+[`RFM Scoring`](sql/02_rfm_scoring.sql) 
 
  
