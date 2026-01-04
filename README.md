@@ -7,6 +7,7 @@ This project transforms a messy, real-world retail dataset into a structured ana
 ## 🛠 Tech Stack
 
 - **Database:** Google BigQuery (SQL)
+- **Visualization:** Google Looker Studio
 - **Data Source:** Online Retail II (via Kaggle)
 - **Concepts:** Schema Mapping, ETL, Data Cleaning, CTEs (Common Table Expressions), Data Validation, Window Functions, Customer Segmentation
 
@@ -77,3 +78,35 @@ I then applied a `CASE` statement to categorize customers into strategic segment
 | **Lost/Hibernating** |1015| Low-cost automated win-back campaign |
  
 🔗[`View Customer Segmentation Query`](sql/04_final_segment.sql)
+
+## 🌟 Phase 3: Executive Summary & Recommendations
+
+<the pie chart image>
+
+### Defensive Retention Strategy (High ROI)
+
+- **Insight:** We have 341 **"Big Spenders at Risk."** These represent high-value assets that have not purchased recently.
+- **Recommendation:** Launch an exclusive "We Miss You" campaign for this segment with a 15% discount. Recovering these customers is more cost-effective than acquiring new ones.
+
+### Community & Referral (Growth)
+
+- **Insight:** 25% of our base **(973 Champions)** are highly engaged "Power Users."
+- **Recommendation:** Implement a referral program for this segment. Leveraging these brand advocates to acquire new customers will significantly lower our costs.
+
+<the scatter plot image>
+
+### High-Value Loyalty Audit
+
+- **Insight:** The scatter plot confirms that our highest-value "Whale" customers are staying active. 100% of our top revenue-generators have purchased within the last 180 days, leaving the "Danger Zone" (High Revenue/High Recency) largely empty.
+- **Recommendation:** Continue the current loyalty drivers for the top-tier segment while shifting marketing spend toward the Regular and At Risk segments to move them up the value chain.
+
+<the geo map image>
+
+### International Expansion Opportunities
+
+- **The Insight:** 90% of revenue is concentrated in the UK, representing a Geographic Concentration Risk. However, France and Germany show the highest revenue outside the domestic market.
+- **Recommendation** Test performance marketing and localized shipping promotions in Germany and France to diversify the revenue base and reduce reliance on a single market.
+
+## 🎖 Personal Reflection
+
+Transitioning from Electronic Warfare to Data Analytics, I've found that the core mission remains the same: extracting signals from noise to drive decision-making. Whether identifying radar signatures or customer segments, the goal is precision. This project demonstrates my ability to build the technical pipeline (SQL), ensure the accuracy of the feed (ETL), and brief the mission results (Looker Studio) to ensure strategic victory.
