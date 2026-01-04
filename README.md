@@ -59,7 +59,12 @@ To move beyond basic reporting, I implemented an RFM Model to categorize custome
 
 We have the raw numbers (Recency, Frequency, Monetary), but from a business perspective, it is better to see where the "Risk" is. 
 
+<br>
+<br>
+<p align="center">
 <img src="predictive_segments.png" alt="Predictive Segments" width="500" height="400">
+</p>
+<br>
 
 Using the SQL `NTILE` window function, I assigned a score of 1–5 for each metric.
 
@@ -81,8 +86,6 @@ I then applied a `CASE` statement to categorize customers into strategic segment
 
 ## 🌟 Phase 3: Executive Summary & Recommendations
 
-<img src="customer_segments.png" alt="Customer Segments" width="500" height="400">
-
 ### Defensive Retention Strategy (High ROI)
 
 - **Insight:** We have 341 **"Big Spenders at Risk."** These represent high-value assets that have not purchased recently.
@@ -93,19 +96,36 @@ I then applied a `CASE` statement to categorize customers into strategic segment
 - **Insight:** 25% of our base **(973 Champions)** are highly engaged "Power Users."
 - **Recommendation:** Implement a referral program for this segment. Leveraging these brand advocates to acquire new customers will significantly lower our costs.
 
-<img src="recency_vs_revenue.png" alt="Recency vs Revenue" width="500" height="400">
+<br>
+<br>
+<p align="center">
+<img src="customer_segments.png" alt="Customer Segments" width="500" height="400">
+</p>
+<br>
 
 ### High-Value Loyalty Audit
 
 - **Insight:** The scatter plot confirms that our highest-value "Whale" customers are staying active. 100% of our top revenue-generators have purchased within the last 180 days, leaving the "Danger Zone" (High Revenue/High Recency) largely empty.
 - **Recommendation:** Continue the current loyalty drivers for the top-tier segment while shifting marketing spend toward the Regular and At Risk segments to move them up the value chain.
 
-<img src="global_revenue.png" alt="Global Revenue" width="500" height="400">
+<br>
+<br>
+<p align="center">
+  <img src="recency_vs_revenue.png" alt="Recency vs Revenue" width="700">
+</p>
+<br>
 
 ### International Expansion Opportunities
 
 - **The Insight:** 90% of revenue is concentrated in the UK, representing a Geographic Concentration Risk. However, France and Germany show the highest revenue outside the domestic market.
 - **Recommendation** Test performance marketing and localized shipping promotions in Germany and France to diversify the revenue base and reduce reliance on a single market.
+
+<br>
+<br>
+<p align="center">
+  <img src="global_revenue.png" alt="Global Revenue Map" width="700">
+</p>
+<br>
 
 ## 🎖 Personal Reflection
 
