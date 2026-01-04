@@ -81,7 +81,7 @@ I then applied a `CASE` statement to categorize customers into strategic segment
 
 ## 🌟 Phase 3: Executive Summary & Recommendations
 
-<the pie chart image>
+<img src="customer_segments.png" alt="Customer Segments" width="500" height="400">
 
 ### Defensive Retention Strategy (High ROI)
 
@@ -93,14 +93,14 @@ I then applied a `CASE` statement to categorize customers into strategic segment
 - **Insight:** 25% of our base **(973 Champions)** are highly engaged "Power Users."
 - **Recommendation:** Implement a referral program for this segment. Leveraging these brand advocates to acquire new customers will significantly lower our costs.
 
-<the scatter plot image>
+<img src="recency_vs_revenue.png" alt="Recency vs Revenue" width="500" height="400">
 
 ### High-Value Loyalty Audit
 
 - **Insight:** The scatter plot confirms that our highest-value "Whale" customers are staying active. 100% of our top revenue-generators have purchased within the last 180 days, leaving the "Danger Zone" (High Revenue/High Recency) largely empty.
 - **Recommendation:** Continue the current loyalty drivers for the top-tier segment while shifting marketing spend toward the Regular and At Risk segments to move them up the value chain.
 
-<the geo map image>
+<img src="global_revenue.png" alt="Global Revenue" width="500" height="400">
 
 ### International Expansion Opportunities
 
