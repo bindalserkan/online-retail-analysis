@@ -2,7 +2,20 @@
 
 ## 📌 Project Overview 
 
-This project transforms a messy, real-world retail dataset into a structured analytical environment. Leveraging *SQL* and *BigQuery*, I performed a full **ETL (Extract, Transform, Load)** process to clean over 500k rows of transactional data, followed by an **RFM (Recency, Frequency, Monetary)** analysis to segment customers and drive strategic business value.
+This project transforms a messy, real-world retail dataset into a structured analytical environment and a strategic decision-making tool.
+<br> 
+<br>
+Leveraging *"SQL and BigQuery"* , I performed a full **ETL (Extract, Transform, Load)** process to clean over 500k rows of transactional data, followed by an **RFM (Recency, Frequency, Monetary)** analysis to segment customers by behavior.
+<br>
+<br>
+The project culminates in visualizations created in *"Looker Studio"* supporting the insights and my recommendations to improve customer retention and international market growth.
+
+<br>
+<br>
+<p align="center">
+<img src="online_retail_analysis.png" alt="Online Retail Analysis." width="700" height="600">
+</p>
+<br>
 
 ## 🛠 Tech Stack
 
