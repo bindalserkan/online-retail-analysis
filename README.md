@@ -13,7 +13,7 @@ The project culminates in visualizations created in *"Looker Studio"* supporting
 <br>
 <br>
 <p align="center">
-<img src="online_retail_analysis.png" alt="Online Retail Analysis." width="700" height="600">
+<img src="assets/online_retail_analysis.png" alt="Online Retail Analysis." width="700" height="600">
 </p>
 <br>
 
@@ -75,7 +75,7 @@ We have the raw numbers (Recency, Frequency, Monetary), but from a business pers
 <br>
 <br>
 <p align="center">
-<img src="predictive_segments.png" alt="Predictive Segments" width="500" height="400">
+<img src="assets/predictive_segments.png" alt="Predictive Segments" width="500" height="400">
 </p>
 <br>
 
@@ -112,7 +112,7 @@ I then applied a `CASE` statement to categorize customers into strategic segment
 <br>
 <br>
 <p align="center">
-<img src="customer_segments.png" alt="Customer Segments" width="500" height="400">
+<img src="assets/customer_segments.png" alt="Customer Segments" width="500" height="400">
 </p>
 <br>
 
@@ -124,7 +124,7 @@ I then applied a `CASE` statement to categorize customers into strategic segment
 <br>
 <br>
 <p align="center">
-  <img src="recency_vs_revenue.png" alt="Recency vs Revenue" width="700">
+  <img src="assets/recency_vs_revenue.png" alt="Recency vs Revenue" width="700">
 </p>
 <br>
 
@@ -136,7 +136,7 @@ I then applied a `CASE` statement to categorize customers into strategic segment
 <br>
 <br>
 <p align="center">
-  <img src="global_revenue.png" alt="Global Revenue Map" width="700">
+  <img src="assets/global_revenue.png" alt="Global Revenue Map" width="700">
 </p>
 <br>
 
